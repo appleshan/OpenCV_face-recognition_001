@@ -1,8 +1,8 @@
 #+TITLE: 简单的人脸识别
 
-* 开发环境的配置
+** 开发环境的配置
 
-** 1. 安装 Anaconda
+*** 1. 安装 Anaconda
 
  - Windows
 官网下载地址 https://www.anaconda.com/download/
@@ -50,13 +50,13 @@ index-url = https://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
 #+END_EXAMPLE
 
-** 2. 安装 Pycharm
+*** 2. 安装 Pycharm
 首先去 Pycharm 官网，或者直接输入网址：
 http://www.jetbrains.com/pycharm/download/#section=windows ，
 下载 PyCharm 安装包，根据自己电脑的操作系统进行选择，对于 windows 系统选择下图的框框所包含的安装包。
 这个也可以从网上找很多，而且安装很成功，个人学习的话，建议安装免费版本。
 
-** 3. Python 环境配置
+*** 3. Python 环境配置
 打开 Pycharm，随便先创建一个工程或者.py 文件。
 点击 File→Setting，打开界面在这个选择你刚才安装的 anconda，具体可以找找教程。
 [[file:./Pycharm-Project-Interpreter.png]]
@@ -91,15 +91,16 @@ conda install scikit-learn=0.20.3
 pip3 install opencv-python==4.1.0.25
 #+END_SRC
 
-* Run
+** Run
 
-** gain_face(获取人的脸部信息，并保存到所属文件夹)
+*** gain_face(获取人的脸部信息，并保存到所属文件夹)
 gain_face.py
 
-** face_train(人脸特征训练，并保存CNN网络模型到文件)
+*** face_train(人脸特征训练，并保存CNN网络模型到文件)
 face_train.py
 
-** face_recognition(循环检测识别人脸)
+*** face_recognition(循环检测识别人脸)
 face_recognition.py
 
+** 参考
 [[https://github.com/appleshan/org-notes/blob/master/develop/OpenCV/Python%2BTensorflow%2BOpencv%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB.org][Python+Tensorflow+Opencv的人脸识别]]
