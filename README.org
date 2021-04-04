@@ -57,11 +57,6 @@ http://www.jetbrains.com/pycharm/download/#section=windows ，
 这个也可以从网上找很多，而且安装很成功，个人学习的话，建议安装免费版本。
 
 *** 3. Python 环境配置
-打开 Pycharm，随便先创建一个工程或者.py 文件。
-点击 File→Setting，打开界面在这个选择你刚才安装的 anconda，具体可以找找教程。
-[[file:./Pycharm-Project-Interpreter.png]]
-
-同时你可以在箭头 2 的位置添加我们这个项目的第三方库。
 你需要到的依赖库主要有：
 
  - python3.7.1
@@ -90,6 +85,10 @@ conda install scikit-learn=0.20.3
 
 pip3 install opencv-python==4.1.0.25
 #+END_SRC
+
+打开 Pycharm，随便先创建一个工程或者.py 文件。
+点击 File→Setting，打开界面找到 Python Interpreter，在这里选择你刚才用 conda 创建的虚拟环境里的 python，具体可以找找教程。
+例如：~/.conda/envs/face-recognition/bin/python3.7
 
 ** Run
 
