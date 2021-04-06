@@ -69,7 +69,7 @@ trusted-host=mirrors.aliyun.com
  - python3.7.1
  - tensorflow 2.1.0（文章中 1.13.1）
    一定要用 conda 安装 TensorFlow（https://zhuanlan.zhihu.com/p/46579831）。
-   tensorflow 有两种：CPU 版本、GPU 加速版本（https://zhuanlan.zhihu.com/p/268081812）。
+   tensorflow 有两种：CPU 版本、GPU 加速版本。
    pip 安装 TensorFlow，GPU 支持所需的 CUDA 和 CuDNN 库需要手动安装；
    conda 安装 TensorFlow，GPU 支持所需的 CUDA 和 CuDNN 库会自动安装成功。
    NVIDIA 驱动程序都必须单独安装。
