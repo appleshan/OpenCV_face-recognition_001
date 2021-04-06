@@ -125,5 +125,9 @@ http://www.jetbrains.com/pycharm/download/#section=windows ，
 *** face_recognition.py
 循环检测识别人脸
 
+需要在本地 Python 环境中找到人脸识别分类器，然后改写变量 cascade_path。
+例如我这部电脑上人脸识别分类器的存储路径：
+~/.conda/pkgs/opencv-4.1.0-py37h3aa1047_6/share/opencv4/haarcascades/haarcascade_frontalface_alt2.xml
+
 ** 参考
 [[https://blog.csdn.net/weilixin88/article/details/90680777][Python+Tensorflow+Opencv的人脸识别]]
