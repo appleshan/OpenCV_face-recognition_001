@@ -5,7 +5,7 @@
 
 import cv2
 import sys
-from create_folder import create_folder
+from gain_face.create_folder import create_folder
 
 
 def catch_pic_from_video(window_name, camera_idx, catch_pic_num, path_name):

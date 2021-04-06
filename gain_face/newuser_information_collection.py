@@ -1,7 +1,7 @@
 ###################################################
 # 相当于公司人力组织一次所有员工人脸信息采集
 ###################################################
-from gain_face import catch_pic_from_video
+from gain_face.gain_face import catch_pic_from_video
 
 while True:
     print("是否录入员工信息(Yes or No)?")
