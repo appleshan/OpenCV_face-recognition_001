@@ -21,9 +21,22 @@ yay -S miniconda3
 sudo ln -s /opt/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 #+END_SRC
 
-配置 conda
-修改 ~/.condarc
+*** 2. 安装 pip
+
+#+BEGIN_SRC sh
+python -m pip install --upgrade pip
+#+END_SRC
+
+*** 3. 更改 Python 包的下载源
+
+在国内访问 conda 默认的下载源速度较慢，我们可以通过设置更改镜像源，从国内镜像站点下载，提高下载速度。
+
+**** 配置 conda，修改 ~/.condarc
+
+一般使用 [[https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/][清华源]] ，当清华源不可用的时候参考以下内容。
+
 #+BEGIN_EXAMPLE
+# @See https://mirrors.bfsu.edu.cn/help/anaconda/
 channels:
   - defaults
 show_channel_urls: true
@@ -40,8 +53,8 @@ custom_channels:
   simpleitk: https://mirrors.bfsu.edu.cn/anaconda/cloud
 #+END_EXAMPLE
 
-配置 pip
-修改 ~/.config/pip/pip.conf
+**** 配置 pip，修改 ~/.config/pip/pip.conf
+
 #+BEGIN_EXAMPLE
 [global]
 index-url = https://mirrors.aliyun.com/pypi/simple/
@@ -50,17 +63,16 @@ index-url = https://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
 #+END_EXAMPLE
 
-*** 2. 安装 Pycharm
-首先去 Pycharm 官网，或者直接输入网址：
-http://www.jetbrains.com/pycharm/download/#section=windows ，
-下载 PyCharm 安装包，根据自己电脑的操作系统进行选择，对于 windows 系统选择下图的框框所包含的安装包。
-这个也可以从网上找很多，而且安装很成功，个人学习的话，建议安装免费版本。
-
-*** 3. Python 环境配置
+*** 4. Python 虚拟环境配置
 你需要到的依赖库主要有：
 
  - python3.7.1
  - tensorflow 2.1.0（文章中 1.13.1）
+   一定要用 conda 安装 TensorFlow（https://zhuanlan.zhihu.com/p/46579831）。
+   tensorflow 有两种：CPU 版本、GPU 加速版本（https://zhuanlan.zhihu.com/p/268081812）。
+   pip 安装 TensorFlow，GPU 支持所需的 CUDA 和 CuDNN 库需要手动安装；
+   conda 安装 TensorFlow，GPU 支持所需的 CUDA 和 CuDNN 库会自动安装成功。
+   NVIDIA 驱动程序都必须单独安装。
  - keras 2.3.1（文章中 2.2.4）
  - scikit-learn 0.20.3
  - numpy（这个随便）
@@ -69,22 +81,34 @@ http://www.jetbrains.com/pycharm/download/#section=windows ，
 安装方法：
 注意：tensorflow 与 tensorflow-gpu 二选一。
 #+BEGIN_SRC sh
+# "face-recognition"是个自定义的名字，可以改
 conda create –n face-recognition python=3.7
 
 conda activate face-recognition
 
-# 一定要用 conda 安装 TensorFlow 包 @See https://zhuanlan.zhihu.com/p/46579831
 # 安装 CPU 版本的 TensorFlow
 conda install tensorflow=2.1.0
 # 安装 GPU 加速版本的 TensorFlow
-# GPU 支持所需的 CUDA 和 CuDNN 库会自动安装成功，NVIDIA 驱动程序都必须单独安装
 conda install tensorflow-gpu=2.1.0
 
 conda install keras=2.3.1
 conda install scikit-learn=0.20.3
 
+# conda 中不容易找到 opencv-python
 pip3 install opencv-python==4.1.0.25
 #+END_SRC
+
+*** 5. Python 运行环境
+
+**** 在 VS Code 中配置基于 Anaconda 的 Python 运行环境
+在 VS Code 的 Python 解释器配置中选择刚刚创建的虚拟环境里的 python。
+例如：~/.conda/envs/face-recognition/bin/python3.7
+
+**** 在 Pycharm 中配置基于 Anaconda 的 Python 运行环境
+首先去 Pycharm 官网，或者直接输入网址：
+http://www.jetbrains.com/pycharm/download/#section=windows ，
+下载 PyCharm 安装包，根据自己电脑的操作系统进行选择，对于 windows 系统选择下图的框框所包含的安装包。
+这个也可以从网上找很多，而且安装很成功，个人学习的话，建议安装免费版本。
 
 打开 Pycharm，随便先创建一个工程或者.py 文件。
 点击 File→Setting，打开界面找到 Python Interpreter，在这里选择你刚才用 conda 创建的虚拟环境里的 python，具体可以找找教程。
@@ -92,14 +116,14 @@ pip3 install opencv-python==4.1.0.25
 
 ** Run
 
-*** gain_face(获取人的脸部信息，并保存到所属文件夹)
-gain_face.py
+*** gain_face.py
+获取人的脸部信息，并保存到所属文件夹
 
-*** face_train(人脸特征训练，并保存CNN网络模型到文件)
-face_train.py
+*** face_train.py
+人脸特征训练，并保存 CNN 网络模型到文件
 
-*** face_recognition(循环检测识别人脸)
-face_recognition.py
+*** face_recognition.py
+循环检测识别人脸
 
 ** 参考
-[[https://github.com/appleshan/org-notes/blob/master/develop/OpenCV/Python%2BTensorflow%2BOpencv%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB.org][Python+Tensorflow+Opencv的人脸识别]]
+[[https://blog.csdn.net/weilixin88/article/details/90680777][Python+Tensorflow+Opencv的人脸识别]]
