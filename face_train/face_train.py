@@ -15,7 +15,7 @@ from keras.utils import np_utils
 from keras.models import load_model
 from keras import backend as K
 
-from face_train.load_dataset import load_dataset, resize_image
+from load_dataset import load_dataset, resize_image
 
 IMAGE_SIZE = 64
 
@@ -100,8 +100,7 @@ class Model:
     def __init__(self):
         self.model = None
 
-        # 建立模型
-
+    # 建立模型
     def build_model(self, dataset, nb_classes=4):
 
         # 构建一个空的网络模型，它是一个线性堆叠模型，各神经网络层会被顺序添加，专业名称为序贯模型或线性堆叠模型
@@ -232,7 +231,6 @@ if __name__ == '__main__':
     dataset.load()
 
     model = Model()
-    model.build_model(dataset, nb_classes=user_num)
 
     # 先前添加的测试build_model()函数的代码
     model.build_model(dataset, nb_classes=user_num)
