@@ -98,6 +98,12 @@ conda install scikit-learn=0.20.3
 pip3 install opencv-python==4.1.0.25
 #+END_SRC
 
+安装完 opencv-python 之后，需要找到 Haar人脸特征分类器，识别人脸的程序中要用到。
+例如我这部电脑上人脸识别分类器的存储路径：
+~/.conda/pkgs/opencv-4.1.0-py37h3aa1047_6/share/opencv4/haarcascades/haarcascade_frontalface_alt2.xml
+
+也可以到 [[https://github.com/opencv/opencv/tree/master/data/haarcascades][opencv 的 Github 项目仓库]] 下载
+
 *** 5. Python 运行环境
 
 **** 在 VS Code 中配置基于 Anaconda 的 Python 运行环境
@@ -125,9 +131,7 @@ http://www.jetbrains.com/pycharm/download/#section=windows ，
 *** face_recognition.py
 循环检测识别人脸
 
-需要在本地 Python 环境中找到人脸识别分类器，然后改写变量 cascade_path。
-例如我这部电脑上人脸识别分类器的存储路径：
-~/.conda/pkgs/opencv-4.1.0-py37h3aa1047_6/share/opencv4/haarcascades/haarcascade_frontalface_alt2.xml
+需要在本地 Python 环境中找到人脸特征分类器，然后改写变量 cascade_path。
 
 ** 参考
 [[https://blog.csdn.net/weilixin88/article/details/90680777][Python+Tensorflow+Opencv的人脸识别]]
